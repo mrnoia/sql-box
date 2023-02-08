@@ -92,6 +92,7 @@
     </div>
 
     <div class="container-fluid p-2">
+        <a href="https://www.w3schools.com" target="_blank">Visit W3Schools.com!</a>
         <h3 class="pt-2 pb-2"><code>Working with Database:db1</code></h3>
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -129,10 +130,12 @@
             <div class="tab-pane active p-1" id="tables">
                 <br>
                 <div class="table-sm thead-dark " id="tabulator-table"></div>
+
             </div>
             <div class="tab-pane" id="picture">
                 <br>
-                User Pictures
+                <div class="table-sm thead-dark " id="example-table"></div>
+
             </div>
             <div class="tab-pane" id="video">
                 <br>
@@ -212,7 +215,7 @@
                 "ACCESSCOUNT": "1521",
                 "LASTACCESSDATE": "06/02/2023",
                 "lastCollectedStats": "06/02/2023",
-                "TdefUrl": "dd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0tps_prod_format_sales_1x",
+                "TdefUrl": "#myModal",
                 "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0tps_prod_format_sales_1x",
                 "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0tps_prod_format_sales_1x ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      tesco_week INTEGER,      sales_week INTEGER,      product_id INTEGER,      ME_sal_val_total DECIMAL(18,2),      ME_sal_val_base DECIMAL(18,2),      ME_sal_val_price_cut DECIMAL(18,2),      ME_sal_val_multibuy DECIMAL(18,2),      ME_sal_val_other_promo DECIMAL(18,2),      Exp_sal_val_total DECIMAL(18,2),      Exp_sal_val_base DECIMAL(18,2),      Exp_sal_val_price_cut DECIMAL(18,2),      Exp_sal_val_multibuy DECIMAL(18,2),      Exp_sal_val_other_promo DECIMAL(18,2),      Jacks_sal_val_total DECIMAL(18,2),      Jacks_sal_val_base DECIMAL(18,2),      Jacks_sal_val_price_cut DECIMAL(18,2),      Jacks_sal_val_multibuy DECIMAL(18,2),      Jacks_sal_val_other_promo DECIMAL(18,2),      ME_sal_vol_total DECIMAL(18,2),      ME_sal_vol_base DECIMAL(18,2),      ME_sal_vol_price_cut DECIMAL(18,2),      ME_sal_vol_multibuy DECIMAL(18,2),      ME_sal_vol_other_promo DECIMAL(18,2),      Exp_sal_vol_total DECIMAL(18,2),      Exp_sal_vol_base DECIMAL(18,2),      Exp_sal_vol_price_cut DECIMAL(18,2),      Exp_sal_vol_multibuy DECIMAL(18,2),      Exp_sal_vol_other_promo DECIMAL(18,2),      Jacks_sal_vol_total DECIMAL(18,2),      Jacks_sal_vol_base DECIMAL(18,2),      Jacks_sal_vol_price_cut DECIMAL(18,2),      Jacks_sal_vol_multibuy DECIMAL(18,2),      Jacks_sal_vol_other_promo DECIMAL(18,2))UNIQUE PRIMARY INDEX ( tesco_week ,sales_week ,product_id ); ",
 
@@ -234,7 +237,7 @@
                 "ACCESSCOUNT": "40373",
                 "LASTACCESSDATE": "06/02/2023",
                 "lastCollectedStats": "06/02/2023",
-                "TdefUrl": "dd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0cpc_competitor_prod_price",
+                "TdefUrl": "#myModal",
                 "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0cpc_competitor_prod_price",
                 "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0cpc_competitor_prod_price ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      Effective_Date TIMESTAMP(6) NOT NULL,      Competitor_ID INTEGER NOT NULL,      Competitor_Product_SID BIGINT NOT NULL,      Competitor_Selling_Area_ID INTEGER NOT NULL,      Order_Channel_ID INTEGER NOT NULL,      Competitor_Selling_Price DECIMAL(18,4),      Price_Pickup_Count INTEGER)PRIMARY INDEX ( Effective_Date ,Competitor_ID ,Competitor_Product_SID ,Competitor_Selling_Area_ID ,Order_Channel_ID ); ",
 
@@ -256,7 +259,7 @@
                 "ACCESSCOUNT": "47918",
                 "LASTACCESSDATE": "06/02/2023",
                 "lastCollectedStats": "06/02/2023",
-                "TdefUrl": "dd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0trp_tesco_product_price",
+                "TdefUrl": "#myModal",
                 "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0trp_tesco_product_price",
                 "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0trp_tesco_product_price ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      Effective_Date DATE FORMAT 'YYYY-MM-DD',      Product_ID INTEGER,      CUA_ID INTEGER,      Selling_Area_ID BYTEINT,      Order_Channel_ID BYTEINT,      Selling_Price DECIMAL(18,2),      CUA_Rank INTEGER NOT NULL DEFAULT 1 )PRIMARY INDEX ( Effective_Date ,Product_ID ,Selling_Area_ID ,Order_Channel_ID ); ",
 
@@ -278,7 +281,7 @@
                 "ACCESSCOUNT": "17413",
                 "LASTACCESSDATE": "06/02/2023",
                 "lastCollectedStats": "23/01/2023",
-                "TdefUrl": "dd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0tps_prod_format_sales_52",
+                "TdefUrl": "#myModal",
                 "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0tps_prod_format_sales_52",
                 "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0tps_prod_format_sales_52 ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      tesco_day DATE FORMAT 'YY/MM/DD',      tesco_week INTEGER,      sales_week INTEGER,      product_id INTEGER,      ME_sales_value_1w DECIMAL(18,2),      Exp_sales_value_1w DECIMAL(18,2),      Jacks_sales_value_1w DECIMAL(18,2),      ME_sales_volume_1w DECIMAL(18,2),      Exp_sales_volume_1w DECIMAL(18,2),      Jacks_sales_volume_1w DECIMAL(18,2),      ME_sales_value_12w DECIMAL(18,2),      Exp_sales_value_12w DECIMAL(18,2),      Jacks_sales_value_12w DECIMAL(18,2),      ME_sales_volume_12w DECIMAL(18,2),      Exp_sales_volume_12w DECIMAL(18,2),      Jacks_sales_volume_12w DECIMAL(18,2),      ME_sales_value_52w DECIMAL(18,2),      Exp_sales_value_52w DECIMAL(18,2),      Jacks_sales_value_52w DECIMAL(18,2),      ME_sales_volume_52w DECIMAL(18,2),      Exp_sales_volume_52w DECIMAL(18,2),      Jacks_sales_volume_52w DECIMAL(18,2))UNIQUE PRIMARY INDEX ( tesco_day ,tesco_week ,sales_week ,product_id ); ",
 
@@ -409,7 +412,7 @@
                     formatterParams: {
                         labelField: "Definition",
                         urlField: "TdefUrl",
-                        target: "_blank",
+                        target: "",
                     }
                 }
             ],
@@ -446,6 +449,27 @@
             table.download("xlsx", "data.xlsx", {
                 sheetName: "Objects List"
             });
+        });
+    </script>
+    <script>
+        var data = [{ id: 1, name: "Olivia", url: "https://www.example.com" }, { id: 2, name: "Noah", url: "https://www.example.com" }, { id: 3, name: "Emma", url: "https://www.example.com" }, { id: 4, name: "Liam", url: "https://www.example.com" }, { id: 5, name: "Ava", url: "https://www.example.com" },];
+        var table1 = new Tabulator("#example-table", {
+            data: data,
+            columns: [
+                { title: "Name", field: "name", width: 150 },
+                {
+                    title: "URL", field: "url", formatter: function (cell, formatterParams) {
+                        var value = cell.getValue();
+                        return "<a href='#' class='modal-link'>" + value + "</a>";
+                    }
+                }
+            ],
+        });
+
+        // Trigger the modal when the link is clicked
+        $(document).on("click", ".modal-link", function (e) {
+            e.preventDefault();
+            $("#myModal").modal();
         });
     </script>
 
