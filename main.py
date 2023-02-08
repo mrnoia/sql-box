@@ -6,9 +6,10 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        code = request.form.get("code")
+        print(request.form.get("database_file"))
+        database_file= request.form.get("database_file")
         # Do something with the code here, such as saving it to a file or processing it further
-    return render_template("index.html")
+    return render_template("index.html", database_file=database_file)
 
 
 if __name__ == "__main__":

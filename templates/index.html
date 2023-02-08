@@ -72,28 +72,32 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="custom-file" id="customFile" lang="es">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
-                        <label class="custom-file-label" for="exampleInputFile">
-                            Select file...
-                        </label>
-                    </div>
-                </div>
+                <form action="{{ url_for('index') }}" method="post">
+                    <div class="modal-body">
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
+                        <div class="custom-file" id="customFile" lang="es">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="database_file">
+                            <label class="custom-file-label" for="exampleInputFile">
+                                Select file...
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
 
             </div>
         </div>
     </div>
 
     <div class="container-fluid p-2">
-        <a href="https://www.w3schools.com" target="_blank">Visit W3Schools.com!</a>
-        <h3 class="pt-2 pb-2"><code>Working with Database:db1</code></h3>
+
+        <h3 class="pt-2 pb-2"><code>Working with Database:db1-{{ database_file }}</code></h3>
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#tables" data-toggle="tab">
