@@ -5,22 +5,42 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Starter Template</title>
+
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Favicon -->
     <link rel="icon" href="">
 
-    <!-- Bootstrap 4  CSS-->
+    <!-- Bootstrap 4 -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <!-- Font Awesome  CSS-->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-    <!--Tabulator CSS-->
+    <!--Tabulator-->
     <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet">
+
     <link href="/static/css/tabulator_bootstrap4.min.css" rel="stylesheet">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Tabulator-->
+    <script src="https://unpkg.com/tabulator-tables@4.1.4/dist/js/tabulator.min.js"></script>
+    <!--Moment-->
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!--Tabulator xsl export-->
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
 
 </head>
 
@@ -93,10 +113,9 @@
     </div>
 
     <div class="container-fluid p-2">
-        <h3 class="pt-2 pb-2"><code>Working with Database:db1-{{ database_file }}</code></h3>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
 
+        <h3 class="pt-2 pb-2"><code>Working with Database:db1-{{ database_file }}</code></h3>
+        <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#tables" data-toggle="tab">
                     <i class="fas fa-table"></i> Table lists
@@ -128,7 +147,6 @@
                 </a>
             </li>
         </ul>
-        <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane active p-1" id="tables">
                 <br>
@@ -160,27 +178,25 @@
             </div>
         </div>
     </div>
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!--Tabulator-->
-    <script src="https://unpkg.com/tabulator-tables@4.1.4/dist/js/tabulator.min.js"></script>
-    <!--Moment-->
-    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <!--Tabulator xsl export-->
-    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
-
     <script>
+
         $(".custom-file-input").on("change", function () {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    <script>
+        //define data
+        var tabledata1 = [
+            { id: 1, name: "Billy Bob", age: 12, gender: "male", height: 95, col: "red", dob: "14/05/2010" },
+            { id: 2, name: "Jenny Jane", age: 42, gender: "female", height: 142, col: "blue", dob: "30/07/1954" },
+            { id: 3, name: "Steve McAlistaire", age: 35, gender: "male", height: 176, col: "green", dob: "04/11/1982" },
+        ];
+
+        //define table
+        var table = new Tabulator("#example-table1", {
+            data: tabledata1,
+            autoColumns: true,
         });
     </script>
 
