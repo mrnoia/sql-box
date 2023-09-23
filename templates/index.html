@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Starter Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="icon" href="">
+
+    <!-- Bootstrap 4  CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome  CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!--Tabulator CSS-->
+    <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="/static/css/tabulator_bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="#" class="navbar-brand">
+            <img src="/static/img/sqlite.png" height="28" alt="EDS Objects List"><span>SQLite Manager</span></a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Databases
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">db1</a>
+                        <a class="dropdown-item" href="#">db2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal">Add new</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Options</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">More</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+    <!-- The Modal to add databases-->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form action="{{ url_for('index') }}" method="post">
+                    <div class="modal-body">
+
+                        <div class="custom-file" id="customFile" lang="es">
+                            <input type="file" class="custom-file-input" id="exampleInputFile" name="database_file">
+                            <label class="custom-file-label" for="exampleInputFile">
+                                Select file...
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-2">
+        <h3 class="pt-2 pb-2"><code>Working with Database:db1-{{ database_file }}</code></h3>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#tables" data-toggle="tab">
+                    <i class="fas fa-table"></i> Table lists
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#table_info" data-toggle="tab">
+                    <i class="fas fa-info"></i> Table Info
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#table_info1" data-toggle="tab">
+                    <i class="fas fa-video"></i> Table info 1
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#event" data-toggle="tab">
+                    <i class="fas fa-calendar-alt"></i> SQL Editor
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#club" data-toggle="tab">
+                    <i class="fas fa-comments"></i> Spare
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#messages" data-toggle="tab">
+                    <i class="fas fa-envelope"></i> Spare
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active p-1" id="tables">
+                <br>
+                <div class="table-sm thead-dark " id="tabulator-table"></div>
+
+            </div>
+            <div class="tab-pane" id="table_info">
+                <br>
+                <div class="table-sm thead-dark " id="example-table"></div>
+
+            </div>
+            <div class="tab-pane" id="table_info1">
+                <br>
+                <div id="example-table1"></div>
+
+            </div>
+            <div class="tab-pane" id="event">
+                <br>
+                User Events
+            </div>
+            <div class="tab-pane" id="club">
+                <br>
+                User Club
+            </div>
+            <div class="tab-pane" id="messages">
+                <br>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Tabulator-->
+    <script src="https://unpkg.com/tabulator-tables@4.1.4/dist/js/tabulator.min.js"></script>
+    <!--Moment-->
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!--Tabulator xsl export-->
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+    <!--initialize tabulator table-->
+    <script>
+        var tabledata = [
+            {
+                "DataBaseName": "DXWI_PROD_PAP_PLAY_PEN",
+                "DataBaseNameShort": "PAP",
+                "TableName": "twi0pgw_promotion_giveaway_cc",
+                "TableKind": "T",
+                "LastUpdatedUserID": "PRICE_BASKET",
+                "LastUpdated": "16/11/2021",
+                "TB_SIZE_GB": "26.913",
+                "SKEWFACTOR": "0.3481537850789935",
+                "ACCESSCOUNT": "15400",
+                "LASTACCESSDATE": "06/02/2023",
+                "lastCollectedStats": "30/01/2023",
+                "TdefUrl": "dd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0pgw_promotion_giveaway_cc",
+                "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0pgw_promotion_giveaway_cc",
+                "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0pgw_promotion_giveaway_cc ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      Audience_Scheme VARCHAR(100) CHARACTER SET LATIN NOT CASESPECIFIC,      Tesco_Week INTEGER,      Product_ID INTEGER,      Promotion_ID CHAR(9) CHARACTER SET LATIN NOT CASESPECIFIC,      Selling_Area_ID SMALLINT,      Store_Format_Code CHAR(2) CHARACTER SET LATIN NOT CASESPECIFIC,      Promo_Mechanic_Group VARCHAR(20) CHARACTER SET LATIN NOT CASESPECIFIC,      Promo_Mechanic_Name VARCHAR(25) CHARACTER SET LATIN NOT CASESPECIFIC,      Total_Sales DECIMAL(38,2),      Promo_Sales DECIMAL(38,2),      Total_Volume DECIMAL(38,4),      Promo_Volume DECIMAL(38,4),      Promo_Giveaway DECIMAL(38,2),      Online_Sales DECIMAL(38,2),      Online_Promo_Sales DECIMAL(38,2),      Online_Qty DECIMAL(38,4),      Online_Promo_Qty DECIMAL(38,4),      Online_Giveaway DECIMAL(38,2))UNIQUE PRIMARY INDEX ( Audience_Scheme ,Tesco_Week ,Product_ID ,Promotion_ID ,Selling_Area_ID ,Store_Format_Code ); ",
+
+                "TableType": "MULTI",
+                "ViewStats": "view"
+
+
+
+            },
+            {
+                "DataBaseName": "DXWI_PROD_PAP_PLAY_PEN",
+                "DataBaseNameShort": "PAP",
+                "TableName": "twi0tps_prod_format_sales_1x",
+                "TableKind": "T",
+                "LastUpdatedUserID": "svc-price-basket",
+                "LastUpdated": "06/10/2020",
+                "TB_SIZE_GB": "26.294",
+                "SKEWFACTOR": "0.431967875671858",
+                "ACCESSCOUNT": "1521",
+                "LASTACCESSDATE": "06/02/2023",
+                "lastCollectedStats": "06/02/2023",
+                "TdefUrl": "#myModal",
+                "SdefUrl": "sd/?db=DXWI_PROD_PAP_PLAY_PEN&tb=twi0tps_prod_format_sales_1x",
+                "Definition": "CREATE MULTISET TABLE DXWI_PROD_PAP_PLAY_PEN.twi0tps_prod_format_sales_1x ,NO FALLBACK ,     NO BEFORE JOURNAL,     NO AFTER JOURNAL,     CHECKSUM = DEFAULT,     DEFAULT MERGEBLOCKRATIO     (      tesco_week INTEGER,      sales_week INTEGER,      product_id INTEGER,      ME_sal_val_total DECIMAL(18,2),      ME_sal_val_base DECIMAL(18,2),      ME_sal_val_price_cut DECIMAL(18,2),      ME_sal_val_multibuy DECIMAL(18,2),      ME_sal_val_other_promo DECIMAL(18,2),      Exp_sal_val_total DECIMAL(18,2),      Exp_sal_val_base DECIMAL(18,2),      Exp_sal_val_price_cut DECIMAL(18,2),      Exp_sal_val_multibuy DECIMAL(18,2),      Exp_sal_val_other_promo DECIMAL(18,2),      Jacks_sal_val_total DECIMAL(18,2),      Jacks_sal_val_base DECIMAL(18,2),      Jacks_sal_val_price_cut DECIMAL(18,2),      Jacks_sal_val_multibuy DECIMAL(18,2),      Jacks_sal_val_other_promo DECIMAL(18,2),      ME_sal_vol_total DECIMAL(18,2),      ME_sal_vol_base DECIMAL(18,2),      ME_sal_vol_price_cut DECIMAL(18,2),      ME_sal_vol_multibuy DECIMAL(18,2),      ME_sal_vol_other_promo DECIMAL(18,2),      Exp_sal_vol_total DECIMAL(18,2),      Exp_sal_vol_base DECIMAL(18,2),      Exp_sal_vol_price_cut DECIMAL(18,2),      Exp_sal_vol_multibuy DECIMAL(18,2),      Exp_sal_vol_other_promo DECIMAL(18,2),      Jacks_sal_vol_total DECIMAL(18,2),      Jacks_sal_vol_base DECIMAL(18,2),      Jacks_sal_vol_price_cut DECIMAL(18,2),      Jacks_sal_vol_multibuy DECIMAL(18,2),      Jacks_sal_vol_other_promo DECIMAL(18,2))UNIQUE PRIMARY INDEX ( tesco_week ,sales_week ,product_id ); ",
+
+                "TableType": "MULTI",
+                "ViewStats": "view"
+
+
+
+            }
+        ];
+
+        var table = new Tabulator("#tabulator-table", {
+            data: tabledata, //assign data to table
+            height: "480px",
+            layout: "fitData",
+            pagination: "local",
+            paginationSize: 18,
+            paginationSizeSelector: [3, 6, 8, 10],
+            movableColumns: true,
+            footerElement: '<span class="text-left"><span>Showing <span id="search_count"></span>&nbsp;results of <span id="total_count"></span></span>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-sm btn-success" id="download-xlsx">Download xls</button> &nbsp;', //add a custom button to the footer element
+            columns: [
+                {
+                    title: "Object",
+                    field: "TableName",
+                    headerFilter: "input",
+                    formatter: "link",
+                    formatterParams: {
+                        labelField: "TableName",
+                        urlField: "TdefUrl",
+                        target: "_blank",
+                    }
+                },
+                {
+                    title: "Kind",
+                    field: "TableKind",
+                    headerFilter: "input"
+                },
+                {
+                    title: "Type",
+                    field: "TableType",
+                    headerFilter: "input"
+                },
+
+                {
+                    title: "Last Updated by",
+                    field: "LastUpdatedUserID",
+                    headerFilter: "input"
+                },
+                {
+                    title: "Last Updated",
+                    field: "LastUpdated",
+                    headerFilter: "input",
+                    sorter: "date",
+                    sorterParams: {
+                        format: "DD/MM/YYYY"
+                    }
+                },
+                {
+                    title: "Last Accessed",
+                    field: "LASTACCESSDATE",
+                    headerFilter: "input",
+                    sorter: "date",
+                    sorterParams: {
+                        format: "DD/MM/YYYY"
+                    }
+                },
+                {
+                    title: "Access Count",
+                    field: "ACCESSCOUNT",
+                    headerFilter: "input",
+                    sorter: "number",
+                    formatter: "money",
+                    formatterParams: {
+                        decimal: ".",
+                        thousand: ",",
+                        precision: 0
+                    }
+
+                },
+                {
+                    title: "Tb Size GB",
+                    field: "TB_SIZE_GB",
+                    headerFilter: "input",
+                    formatter: "money",
+                    formatterParams: {
+                        decimal: ".",
+                        thousand: ",",
+                        precision: 2
+                    }
+                },
+                {
+                    title: "Skew Factor",
+                    field: "SKEWFACTOR",
+                    headerFilter: "input",
+                    formatter: "money",
+                    formatterParams: {
+                        decimal: ".",
+                        thousand: ",",
+                        precision: 2
+                    }
+                },
+
+                {
+                    title: "Last Collected Stats",
+                    field: "lastCollectedStats",
+                    headerFilter: "input",
+                    sorter: "date",
+                    sorterParams: {
+                        format: "DD/MM/YYYY"
+                    }
+                },
+
+                {
+                    title: "Stats Def",
+                    field: "ViewStats",
+                    formatter: "link",
+                    formatterParams: {
+                        labelField: "ViewStats",
+                        urlField: "SdefUrl",
+                        target: "_blank",
+                    },
+                },
+
+                {
+                    title: "Table Def",
+                    field: "Definition",
+                    headerFilter: "input",
+                    formatter: "link",
+                    formatterParams: {
+                        labelField: "Definition",
+                        urlField: "TdefUrl",
+                        target: "",
+                    }
+                }
+            ],
+            //colour rows based on TableKind
+            rowFormatter: function (row) {
+                var data = row.getData();
+                if (data.TableKind == "T") {
+                    row.getElement().style.backgroundColor = "#f2ffe6";
+                }
+                if (data.TableKind == "V") {
+                    row.getElement().style.backgroundColor = "#ffe6e6";
+                }
+                if (data.TableKind == "P") {
+                    row.getElement().style.backgroundColor = "#e6ffff";
+                }
+
+                if (data.TableKind == "M") {
+                    row.getElement().style.backgroundColor = "#e6f2ff";
+                }
+            },
+            dataFiltered: function (filters, rows) {
+                var el = document.getElementById("search_count");
+                el.innerHTML = rows.length;
+            },
+
+            dataLoaded: function (data) {
+                var el = document.getElementById("total_count");
+                el.innerHTML = data.length;
+
+            },
+
+        });
+        document.getElementById("download-xlsx").addEventListener("click", function () {
+            table.download("xlsx", "data.xlsx", {
+                sheetName: "Objects List"
+            });
+        });
+    </script>
+    <script>
+        var data = [{ id: 1, name: "Olivia", url: "https://www.example.com" }, { id: 2, name: "Noah", url: "https://www.example.com" }, { id: 3, name: "Emma", url: "https://www.example.com" }, { id: 4, name: "Liam", url: "https://www.example.com" }, { id: 5, name: "Ava", url: "https://www.example.com" },];
+        var table1 = new Tabulator("#example-table", {
+            data: data,
+            columns: [
+                { title: "Name", field: "name", width: 150 },
+                {
+                    title: "URL", field: "url", formatter: function (cell, formatterParams) {
+                        var value = cell.getValue();
+                        return "<a href='#' class='modal-link'>" + value + "</a>";
+                    }
+                }
+            ],
+        });
+
+        // Trigger the modal when the link is clicked
+        $(document).on("click", ".modal-link", function (e) {
+            e.preventDefault();
+            $("#myModal").modal();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".nav-link").click(function () {
+                alert("You clicked on " + $(this).text() + " tab");
+                table1.redraw();
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>
